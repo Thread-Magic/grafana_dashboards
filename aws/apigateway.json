@@ -1,31 +1,4 @@
 {
-  "__inputs": [],
-  "__requires": [
-    {
-      "type": "datasource",
-      "id": "cloudwatch",
-      "name": "CloudWatch",
-      "version": "1.0.0"
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "7.1.5"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": "7.1.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -35,29 +8,38 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "description": "Visualize AWS API Gateway metrics",
-  "editable": false,
+  "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": 1516,
   "graphTooltip": 0,
-  "id": null,
-  "iteration": 1601391274139,
+  "id": 33,
+  "iteration": 1712917893755,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$datasource",
+      "datasource": {
+        "uid": "$datasource"
+      },
       "editable": true,
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -89,8 +71,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "8.4.7",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -135,7 +120,9 @@
             "filter": ""
           },
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "Count",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -144,15 +131,11 @@
           "period": "$agg",
           "refId": "A",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Count",
       "tooltip": {
         "msResolution": false,
@@ -162,9 +145,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -172,25 +153,20 @@
         {
           "$$hashKey": "object:124",
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         },
         {
           "$$hashKey": "object:125",
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": false
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -198,12 +174,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$datasource",
+      "datasource": {
+        "uid": "$datasource"
+      },
       "editable": true,
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -235,8 +212,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "8.4.7",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -296,7 +276,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "Latency",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -305,9 +287,7 @@
           "period": "$agg",
           "refId": "A",
           "region": "$region",
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "{{metric}} {{stat}}",
@@ -331,7 +311,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "IntegrationLatency",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -340,9 +322,7 @@
           "period": "$agg",
           "refId": "B",
           "region": "$region",
-          "statistics": [
-            "Average"
-          ]
+          "statistic": "Average"
         },
         {
           "alias": "{{metric}} {{stat}}",
@@ -366,7 +346,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "Latency",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -375,15 +357,11 @@
           "period": "$agg",
           "refId": "C",
           "region": "$region",
-          "statistics": [
-            "Maximum"
-          ]
+          "statistic": "Maximum"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Latency / IntegrationLatency",
       "tooltip": {
         "msResolution": false,
@@ -393,33 +371,26 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "ms",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         },
         {
           "format": "ms",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -430,12 +401,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$datasource",
+      "datasource": {
+        "uid": "$datasource"
+      },
       "editable": true,
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -467,8 +439,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "8.4.7",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -504,7 +479,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "4XXError",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -513,9 +490,7 @@
           "period": "",
           "refId": "A",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         },
         {
           "alias": "{{metric}} {{stat}}",
@@ -539,7 +514,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "5XXError",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -548,9 +525,7 @@
           "period": "",
           "refId": "B",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         },
         {
           "alias": "{{metric}} {{stat}}",
@@ -575,7 +550,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 0,
           "metricName": "Count",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -584,9 +561,7 @@
           "period": "",
           "refId": "E",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         },
         {
           "alias": "Total Error Rate",
@@ -610,7 +585,9 @@
           "item": {
             "filter": ""
           },
+          "metricEditorMode": 1,
           "metricName": "Count",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -619,15 +596,11 @@
           "period": "",
           "refId": "D",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "4XXError / 5XXError",
       "tooltip": {
         "msResolution": false,
@@ -637,33 +610,26 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         },
         {
           "format": "percent",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -671,12 +637,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$datasource",
+      "datasource": {
+        "uid": "$datasource"
+      },
       "editable": true,
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -708,8 +675,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "8.4.7",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -766,7 +736,9 @@
             "filter": ""
           },
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "CacheHitCount",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -775,9 +747,7 @@
           "period": "$agg",
           "refId": "A",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         },
         {
           "alias": "{{metric}} {{stat}}",
@@ -802,7 +772,9 @@
             "filter": ""
           },
           "matchExact": true,
+          "metricEditorMode": 0,
           "metricName": "CacheMissCount",
+          "metricQueryType": 0,
           "mode": 0,
           "namespace": "AWS/ApiGateway",
           "options": {
@@ -811,15 +783,11 @@
           "period": "$agg",
           "refId": "B",
           "region": "$region",
-          "statistics": [
-            "Sum"
-          ]
+          "statistic": "Sum"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "CacheHitCount / CacheMissCount",
       "tooltip": {
         "msResolution": false,
@@ -829,9 +797,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -839,38 +805,28 @@
         {
           "$$hashKey": "object:207",
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         },
         {
           "$$hashKey": "object:208",
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
           "min": 0,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "content": "<a style=\"float: right\" href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html\">AWS CloudWatch API Gateway documentation</a><br/>\n<a style=\"float: left\"  target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>\n<div style=\"clear:both; width:100%;height:0;font-size:0;\"></div>",
-      "datasource": "",
+      "datasource": {
+        "uid": ""
+      },
       "editable": true,
       "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
       "gridPos": {
         "h": 3,
         "w": 24,
@@ -879,18 +835,17 @@
       },
       "id": 2,
       "links": [],
-      "mode": "html",
       "options": {
         "content": "<a href=\"http://www.monitoringartist.com\" target=\"_blank\" title=\"Dashboard maintained by Monitoring Artist - DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring\"><img src=\"https://monitoringartist.github.io/monitoring-artist-logo-grafana.png\" height=\"30px\" /></a> | \n<a target=\"_blank\" href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html\">AWS CloudWatch API Gateway documentation</a> | \n<a target=\"_blank\" href=\"https://grafana.com/dashboards/1516\">Installed from Grafana.com dashboards</a>",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "8.4.7",
       "title": "Documentation",
       "type": "text"
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [
     "monitoringartist",
@@ -899,7 +854,11 @@
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "cloud-watch",
+          "value": "cloud-watch"
+        },
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -917,7 +876,7 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_agg"
         },
@@ -997,9 +956,14 @@
         "type": "interval"
       },
       {
-        "allValue": null,
-        "current": {},
-        "datasource": "$datasource",
+        "current": {
+          "selected": true,
+          "text": "us-east-1",
+          "value": "us-east-1"
+        },
+        "datasource": {
+          "uid": "$datasource"
+        },
         "definition": "regions()",
         "hide": 0,
         "includeAll": false,
@@ -1013,15 +977,19 @@
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
-        "current": {},
-        "datasource": "$datasource",
+        "current": {
+          "selected": false,
+          "text": "psa-webhook-chat-genie-production",
+          "value": "psa-webhook-chat-genie-production"
+        },
+        "datasource": {
+          "uid": "$datasource"
+        },
         "definition": "dimension_values($region,AWS/ApiGateway,Count,ApiName)",
         "hide": 0,
         "includeAll": false,
@@ -1035,15 +1003,20 @@
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
         "allValue": "*",
-        "current": {},
-        "datasource": "$datasource",
+        "current": {
+          "selected": false,
+          "text": "staging",
+          "value": "staging"
+        },
+        "datasource": {
+          "uid": "$datasource"
+        },
         "definition": "dimension_values($region,AWS/ApiGateway,Count,Stage, {\"ApiName\": \"$apiname\"})",
         "hide": 0,
         "includeAll": false,
@@ -1057,7 +1030,6 @@
         "skipUrlSync": false,
         "sort": 1,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -1096,5 +1068,6 @@
   "timezone": "browser",
   "title": "AWS API Gateway",
   "uid": "AWSAPIGat",
-  "version": 1
+  "version": 1,
+  "weekStart": ""
 }
